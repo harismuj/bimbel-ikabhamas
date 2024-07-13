@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+{% block title %}Artikel{% endblock %}
+{% block content %}
+{% include "user/component/navbar.html" %}
+<h2>Artikel</h2>
+{% for article in articles %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ scores }}</h3>
+            <p class="card-text">{{ article.content }}</p>
+            <p class="card-text"><small class="text-muted">Posted on {{ article.date_posted.strftime('%Y-%m-%d') }}</small></p>
+        </div>
+    </div>
+{% endfor %}
+{% include "user/component/footer.html" %}
+{% endblock %}

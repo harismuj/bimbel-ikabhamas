@@ -1,0 +1,89 @@
+<div class="row mt-4">
+    <div class="col-md-12">
+        <form action="{{ url_for('admin.export') }}" method="get">
+            <div class="form-row">
+                    <input type="hidden" name="tanggal_mulai" value="{{ request.args.get('tanggal_mulai') }}">
+                    <input type="hidden" name="tanggal_akhir" value="{{ request.args.get('tanggal_akhir') }}">
+                    <div class="bg-info text-white text-center p-2">Pilih rentang tanggal dan klik filter jika ingin dicetak</div>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i> CETAK</button>
+            </div>
+        </form>
+        <form action="{{ url_for('admin.admin_jasmani') }}" method="get">
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="tanggal_mulai">Tanggal Mulai:</label>
+                    <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="tanggal_akhir">Tanggal Akhir:</label>
+                    <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir">
+                </div>
+                <div class="form-group col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+                </div>
+            </div>
+        </form>
+        <p class="bg-info text-white p-1 text-center">
+            Data dari 
+            {% if request.args.get('tanggal_mulai') and request.args.get('tanggal_mulai') != '' %}
+                {{ request.args.get('tanggal_mulai') }} 
+            {% endif %}
+            {% if request.args.get('tanggal_akhir') and request.args.get('tanggal_akhir') != '' %}
+                - {{ request.args.get('tanggal_akhir') }}
+            {% endif %}
+        </p>
+        <div class="table-responsive">
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Siswa</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Lari</th>
+                        <th>Pull-Up/Chinning</th>
+                        <th>Sit-Up</th>
+                        <th>Push-Up</th>
+                        <th>Shuttle Run</th>
+                        <th>Renang</th>
+                        <th>Nilai Akhir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jasmani in jasmanis %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ jasmani.nama_siswa }}</td>
+                        <td>{{ jasmani.jenis_kelamin }}</td>
+                        <td>{{ jasmani.nilai_lari }}</td>
+                        <td>{{ jasmani.nilai_pullup }}</td>
+                        <td>{{ jasmani.nilai_situp }}</td>
+                        <td>{{ jasmani.nilai_pushup }}</td>
+                        <td>{{ jasmani.nilai_shutrun }}</td>
+                        <td>{{ jasmani.nilai_renang }}</td>
+                        <td>{{ jasmani.nilai_akhir }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<script>
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = today.getMonth() + 1; // Bulan di JavaScript mulai dari 0
+    const dd = today.getDate();
+
+    today.setDate(today.getDate() + 1);
+
+    const y = today.getFullYear();
+    const m = String(today.getMonth() + 1).padStart(2, '0'); // Bulan di JavaScript mulai dari 0
+    const d = String(today.getDate()).padStart(2, '0');
+  
+    document.getElementById('tanggal_mulai').value = yyyy + '-' + mm.toString().padStart(2, '0') + '-' + dd.toString().padStart(2, '0');
+    document.getElementById('tanggal_akhir').value = y + '-' + m.toString().padStart(2, '0') + '-' + d.toString().padStart(2, '0');
+</script>

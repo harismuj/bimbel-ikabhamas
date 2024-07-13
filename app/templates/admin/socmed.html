@@ -1,0 +1,27 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">{{ title }}</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.wa.label(class="form-control-label") }}
+            {{ form.wa(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.instagram.label(class="form-control-label") }}
+            {{ form.instagram(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.tiktok.label(class="form-control-label") }}
+            {{ form.tiktok(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

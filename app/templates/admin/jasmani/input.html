@@ -1,0 +1,48 @@
+<form method="post">
+    {{ form.csrf_token() }}
+
+    <div class="form-group">
+      <label for="nama_siswa">Nama Siswa:</label>
+      {{ form.nama_siswa(class_="form-control", placeholder="Masukkan nama siswa") }}
+    </div>
+
+    <div class="form-group">
+      <label for="jenis_kelamin">Jenis Kelamin:</label>
+      {{ form.jenis_kelamin(class_="form-control") }}
+    </div>
+
+    <div class="form-group">
+      <label for="nilai_lari">Nilai Lari (12 menit):</label>
+      {{ form.nilai_lari(class_="form-control", placeholder="Contoh: 3100") }}
+    </div>
+
+    <div class="form-group">
+      <label for="nilai_pullup">Nilai Pull-Up/Chinning:</label>
+      {{ form.nilai_pullup(class_="form-control", placeholder="Masukkan jumlah pull-up/chinning") }}
+    </div>
+
+    <div class="form-group">
+      <label for="nilai_situp">Nilai Sit-Up:</label>
+      {{ form.nilai_situp(class_="form-control", placeholder="Masukkan jumlah sit-up") }}
+    </div>
+
+    <div class="form-group">
+      <label for="nilai_pushup">Nilai Push-Up:</label>
+      {{ form.nilai_pushup(class_="form-control", placeholder="Masukkan jumlah push-up") }}
+    </div>
+
+    <div class="form-group">
+      <label for="nilai_shutrun">Nilai Shuttle Run (Detik):</label>
+      {{ form.nilai_shutrun(class_="form-control", placeholder="Contoh: 12.5") }}
+    </div>
+
+    <div class="form-group">
+      <label for="nilai_renang">Nilai Renang (Detik):</label>
+      {{ form.nilai_renang(class="form-control", placeholder="Contoh: 12.5") }}
+    </div>
+
+    <button type="submit" class="btn btn-success">Simpan Data</button>
+  </form>
+  <br>
+  <br>
+  <br>

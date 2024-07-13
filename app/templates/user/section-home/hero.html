@@ -1,0 +1,68 @@
+<style>
+    body {
+        background-color: white;
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+    .hero-section {
+        background: url("{{ url_for('static', filename='img/home-hero.png') }}") no-repeat center center;
+        height: 80vh;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+    }
+    .hero-content {
+        position: relative;
+        text-align: center;
+        z-index: 1;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ff9800;
+    }
+    .hero-content h2 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .btn-custom {
+        font-size: 1.2rem;
+        margin: 0 10px;
+    }
+    .btn-whatsapp {
+        background-color: #25d366;
+        color: #fff;
+    }
+    .btn-whatsapp:hover {
+        background-color: #1ebe57;
+    }
+    .btn-register {
+        background-color: #ff9800;
+        color: #fff;
+    }
+    .btn-register:hover {
+        background-color: #e68900;
+    }
+</style>
+<div class="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <img src="{{ url_for('static', filename='img/logo-hero.png') }}" class="img-fluid" alt="image_description" width="100">
+        <h1  style="padding:5px;">BIMBEL IKABHAMAS</h1>
+        <h3>Kunci Suksesmu Menjadi Abdi Negara</h3>
+        <p  style="padding:10px;">Dengan simulasi tes yang realistis untuk melatih mental dan kesiapan</p>
+        <a href="https://wa.me/{{socmed.wa}}" class="btn btn-custom btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Hubungi Kami</a>
+        <a href="#" class="btn btn-custom btn-register"><i class="fa fa-plus-square" aria-hidden="true"></i> Daftar Sekarang</a>
+    </div>
+</div>

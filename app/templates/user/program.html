@@ -1,0 +1,15 @@
+{% extends "user/base.html" %}
+{% block title %}Program{% endblock %}
+{% block content %}
+{% include "user/component/navbar.html" %}
+<h2>Program & Fasilitas</h2>
+{% for program in programs %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ program.name }}</h3>
+            <p class="card-text">{{ program.description }}</p>
+        </div>
+    </div>
+{% endfor %}
+{% include "user/component/footer.html" %}
+{% endblock %}

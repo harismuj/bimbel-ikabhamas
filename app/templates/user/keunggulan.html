@@ -1,0 +1,15 @@
+{% extends "user/base.html" %}
+{% block title %}Fasilitas{% endblock %}
+{% block content %}
+{% include "user/component/navbar.html" %}
+<h2>Keunggulan</h2>
+{% for facility in facilities %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ facility.name }}</h3>
+            <p class="card-text">{{ facility.description }}</p>
+        </div>
+    </div>
+{% endfor %}
+{% include "user/component/footer.html" %}
+{% endblock %}

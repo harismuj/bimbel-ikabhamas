@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard - {% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" type="image/jpg" href="{% for profile in profiles %}{{ url_for('static', filename='img/' ~ profile.logo) }}{% endfor %}"/>
+    <!-- Custom fonts for this template-->
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+    <div class="container" style="margin-top: 2em;">
+        <h2>Data Jasmani Bimbel Ikabhamas</h2>
+        <hr>
+        {% include "flash.html" %}
+        <button id="showInput" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Input Data</button>
+      
+        <button id="showView" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> Lihat Data</button>
+      
+        <div id="input">
+          {% include "admin/jasmani/input.html" %}
+        </div>
+      
+        <div id="view">
+          {% include "admin/jasmani/view.html" %}
+        </div>
+      </div>
+      
+      <script>
+        // Initial display state: View visible, Input hidden
+        const inputElement = document.getElementById('input');
+        const viewElement = document.getElementById('view');
+        let currentView = 'view'; // Track current view state
+      
+        viewElement.style.display = 'block';
+        inputElement.style.display = 'none';
+      
+        // Call showHide function to handle button clicks
+        showHide('showInput', 'input', 'view');
+        showHide('showView', 'view', 'input');
+      
+        // Function to show/hide elements based on button and element IDs
+        function showHide(buttonId, elementToShowId, elementToHideId) {
+          const buttonElement = document.getElementById(buttonId);
+          const elementToShow = document.getElementById(elementToShowId);
+          const elementToHide = document.getElementById(elementToHideId);
+      
+          buttonElement.addEventListener('click', () => {
+            if (currentView === elementToShowId) {
+              return; // Do nothing if already showing the desired element
+            }
+      
+            currentView = elementToShowId;
+      
+            elementToShow.style.display = 'block';
+            elementToHide.style.display = 'none';
+          });
+        }
+      </script>
+   
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

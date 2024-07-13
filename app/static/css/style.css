@@ -1,0 +1,20 @@
+/* Custom styles for sidebar */
+.sidebar {
+    width: 250px;
+}
+.sidebar .nav-item .nav-link {
+    padding: 0.75rem 1rem;
+}
+.sidebar .sidebar-brand {
+    height: 4.375rem;
+    line-height: 4.375rem;
+    text-align: center;
+}
+.sidebar .sidebar-divider {
+    margin: 1rem 0;
+}
+.sidebar.toggled {
+    width: 80px;
+}
+
+

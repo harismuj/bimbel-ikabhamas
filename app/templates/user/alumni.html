@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+{% block title %}Alumni{% endblock %}
+{% block content %}
+{% include "user/component/navbar.html" %}
+<h2>Alumni</h2>
+{% for alumni in alumni_list %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ alumni.name }}</h3>
+            <p class="card-text">Graduation Year: {{ alumni.graduation_year }}</p>
+            <p class="card-text">Current Position: {{ alumni.current_position }}</p>
+        </div>
+    </div>
+{% endfor %}
+{% include "user/component/footer.html" %}
+{% endblock %}

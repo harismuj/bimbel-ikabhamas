@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+{% block title %}Jasmani{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Data Jasmani</h2>
+    <hr>
+    {% include "flash.html" %}
+    <button id="showInput" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Input Data</button>
+  
+    <button id="showView" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> Lihat Data</button>
+  
+    <div id="input">
+      {% include "admin/jasmani/input.html" %}
+    </div>
+  
+    <div id="view">
+      {% include "admin/jasmani/view.html" %}
+    </div>
+  </div>
+  
+  <script>
+    // Initial display state: View visible, Input hidden
+    const inputElement = document.getElementById('input');
+    const viewElement = document.getElementById('view');
+    let currentView = 'view'; // Track current view state
+  
+    viewElement.style.display = 'block';
+    inputElement.style.display = 'none';
+  
+    // Call showHide function to handle button clicks
+    showHide('showInput', 'input', 'view');
+    showHide('showView', 'view', 'input');
+  
+    // Function to show/hide elements based on button and element IDs
+    function showHide(buttonId, elementToShowId, elementToHideId) {
+      const buttonElement = document.getElementById(buttonId);
+      const elementToShow = document.getElementById(elementToShowId);
+      const elementToHide = document.getElementById(elementToHideId);
+  
+      buttonElement.addEventListener('click', () => {
+        if (currentView === elementToShowId) {
+          return; // Do nothing if already showing the desired element
+        }
+  
+        currentView = elementToShowId;
+  
+        elementToShow.style.display = 'block';
+        elementToHide.style.display = 'none';
+      });
+    }
+  </script>
+  
+
+{% endblock %}

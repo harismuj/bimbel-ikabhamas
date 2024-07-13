@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% for profile in profiles %}{{ profile.description }}{% endfor %}" />
+    <META NAME="keywords" CONTENT="{% for profile in profiles %}{{ profile.keyword }}{% endfor %}">
+    
+    <title>500</title>
+    <link rel="shortcut icon" type="image/jpg" href="{% for profile in profiles %}{{ url_for('static', filename='img/' ~ profile.logo) }}{% endfor %}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <section class="py-3 py-md-5 min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="text-center">
+                <h2 class="d-flex justify-content-center align-items-center gap-2 mb-4">
+                  <span class="display-1 fw-bold">5</span>
+                  <span class="display-1 fw-bold">0</span>
+                  <span class="display-1 fw-bold bsb-flip-h">0</span>
+                </h2>
+                <h3 class="h2 mb-2">Internal Server Error.</h3>
+                <p class="mb-5">Sorry, something went wrong on our end..</p>
+                <a class="btn bsb-btn-5xl btn-dark rounded-pill px-5 fs-6 m-0" href="{{ url_for('user.home') }}" role="button">Back to Home</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
+ 

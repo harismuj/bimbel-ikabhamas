@@ -1,0 +1,19 @@
+{% extends "user/base.html" %}
+{% block title %}Bimbel Polri Terbaik{% endblock %}
+{% block content %}
+<style>
+    .carousel-item img {
+        width: 100%;
+        height: 400px; /* Atur tinggi sesuai kebutuhan */
+        object-fit: cover; /* Menjaga proporsi gambar */
+        border-radius: 10px;
+    }
+</style>
+{% include "user/component/navbar.html" %}
+{% include "user/section-home/hero.html" %}
+{% include "user/section-home/tentang-kami.html" %}
+{% include "user/section-home/program.html" %}
+{% include "user/component/footer.html" %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+{% endblock %}

@@ -1,0 +1,24 @@
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+  }
+
+.text-primer{
+  color:#ff9800 !important;
+}
+
+a.nav-link{
+  color: #141414;
+  font-weight: bold;
+}
+
+a.nav-link:hover{
+  color: #ff9800 !important;
+}
+
+a.nav-link.active{
+  color: #ff9800 !important;
+}
+
+.text-bold{
+  font-weight: bold;
+}

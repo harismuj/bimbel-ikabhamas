@@ -1,0 +1,15 @@
+{% extends "user/base.html" %}
+{% block title %}Layanan{% endblock %}
+{% block content %}
+{% include "user/component/navbar.html" %}
+<h2>Layanan</h2>
+{% for service in services %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ service.title }}</h3>
+            <p class="card-text">{{ service.content }}</p>
+        </div>
+    </div>
+{% endfor %}
+{% include "user/component/footer.html" %}
+{% endblock %}
